@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 8080
 //schema
 const schemaData = mongoose.Schema({
     name: String,
-    email:String,
-    mobile:String
+    surname:String,
+    department:String
 }, {
     timestamps:true
 })
@@ -45,9 +45,7 @@ app.put('/update',async(req,res)=>{
     console.log(rest)
     
     const data= await userModel.updateOne({_id:_id},rest)
-    res.send({success:true, message:"data updated successfully", data:data})
-   
-    
+    res.send({success:true, message:"data updated successfully", data:data})   
 })
 //delete data
 app.delete("/delete/:id", async(req,res)=>{
